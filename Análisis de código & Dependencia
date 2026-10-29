@@ -1,0 +1,27 @@
+Análisis de dependencia: CarroCompra → Calculadora
+i. Clases y contexto del problema
+
+**Calculadora:** representa una calculadora simple. Guarda dos números enteros (`n1`, `n2`) y permite sumarlos (`sumar()`) y multiplicarlos (`multiplicar()`). Tiene dos constructores y los métodos `setN1` y `setN2`.
+
+**CarroCompra:** representa un carro de compras. Guarda los productos en una matriz de 2 filas × 5 columnas: la fila 0 tiene las cantidades y la fila 1 tiene los precios. Calcula el total de la compra y lo muestra por pantalla.
+es un sistema de compras en el que el carro necesita calcular el costo de cada producto (cantidad × precio) y sumar todo. Para la multiplicación, delega el cálculo en la clase `Calculadora`.
+ ii. Atributos, métodos y relaciones
+
+| Clase | Atributos | Operaciones |
+|---|---|---|
+| Calculadora | `- n1: int`, `- n2: int` | `+ Calculadora()`, `+ Calculadora(num1: int, num2: int)`, `+ sumar(): int`, `+ multiplicar(): int`, `+ setN1(num1: int): void`, `+ setN2(num2: int): void` |
+| CarroCompra | `- productos: int[][]` | `+ CarroCompra()`, `- calcularTotal(): int`, `- subTotal(cant: int, precio: int): int`, `+ mostrarTotal(): void` |
+
+Relación: dependencia (uso) de `CarroCompra` hacia `Calculadora`
+ `CarroCompra` depende de `Calculadora` porque en `subTotal()` crea una instancia de ella para multiplicar cantidad por precio. `calcularTotal()` recorre las 5 columnas y acumula los subtotales, y `mostrarTotal()` imprime el resultado. Con los valores iniciales, el total es 5 × (1 × 1000) = 5000.
+
+
+
+
+
+
+
+
+
+
+
